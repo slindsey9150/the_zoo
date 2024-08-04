@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         res.send(response.data);
     })
     .catch(error => {
-        console.log("error in the server", error);
+        console.log("error getting meowfact", error);
     })
   });
 
