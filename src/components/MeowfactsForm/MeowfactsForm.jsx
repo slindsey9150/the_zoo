@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 
 export default function MeowfactsForm() {
     const dispatch = useDispatch()
-    const meowFact = useSelector((store) => store.meowfact)
+    const meowFact = useSelector((store) => store.meowfact[0])
     const getMeowFact = () => {
         dispatch({type:'FETCH_MEOWFACT'})
     }
