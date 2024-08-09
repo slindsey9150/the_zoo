@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MeowfactsPage from '../MeowfactsPage/MeowfactsPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import MyPetsPage from '../MyPetsPage/MyPetsPage';
 
 import './App.css';
 
@@ -66,6 +67,13 @@ function App() {
             path="/meowfacts"
           >
             <MeowfactsPage />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/mypets"
+          >
+            <MyPetsPage />
           </ProtectedRoute>
 
           <ProtectedRoute

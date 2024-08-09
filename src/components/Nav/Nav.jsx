@@ -30,6 +30,9 @@ function Nav() {
             <Link className="navLink" to="/meowfacts">
               Meowfacts
             </Link>
+            <Link className="navLink" to="/mypets">
+              Mypets
+            </Link>
 
             <Link className="navLink" to="/info">
               Info Page
