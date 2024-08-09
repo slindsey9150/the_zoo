@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const meowfactsRouter = require('./routes/meowfacts.router')
 const cataasRouter = require('./routes/cataas.router')
+const mypetsRouter = require('./routes/mypets.router')
 
 // Express Middleware
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/meowfacts', meowfactsRouter)
 app.use('/api/cataas', cataasRouter)
+app.use('/api/mypets', mypetsRouter)
 
 // Listen Server & Port
 app.listen(PORT, () => {
