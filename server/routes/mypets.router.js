@@ -19,8 +19,8 @@ router.post('/', (req, res) => {
     pool.query(queryText, queryParams)
     .then((result) => {
         res.sendStatus(200)
-        console.log("req.user", req.user, petOwner);
-        console.log("req.body", req.body);
+        // console.log("req.user", req.user, petOwner);
+        // console.log("req.body", req.body);
         
         })
     .catch((err)=> {
@@ -33,14 +33,14 @@ router.post('/', (req, res) => {
 
   router.get('/', (req, res) => {
     // GET route code here
-    const userID = req.user
+    const userID = req.user.id
     const queryText = `
-    SELECT * FROM pets WHERE pets.owner = '1';
+    SELECT * FROM pets WHERE pets.owner = $1;
     `
-    pool.query(queryText)
+    pool.query(queryText, [userID])
     .then((results) => {
         res.send(results.rows)
-        console.log("req.user", req.user);
+        console.log("req.user", req.user.id);
         
     })
     .catch((error) => {

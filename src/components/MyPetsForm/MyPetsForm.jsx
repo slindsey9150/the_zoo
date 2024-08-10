@@ -13,7 +13,7 @@ export default function MyPetsForm() {
             pet:myPet,
             notes:myPetNotes}})
         }
-        dispatch({type:"GET_MYPETS"})
+        dispatch({type:"GET_MYPETS", payload: myPet})
 
     return(
         <div>
