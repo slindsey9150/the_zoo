@@ -12,9 +12,15 @@ function* putMyPet(action) {
 
     }
 }
+function* getMyPets(action) {
+    const response = yield axios.get('/api/mypets')
+    yield put ({type:"ALL_MYPETS", payload:response.data})
+}
 
 function* mypetsSaga() {
     yield takeLatest('PUT_MYPET', putMyPet);
+    yield takeLatest('GET_MYPETS', getMyPets);
   }
+
   
   export default mypetsSaga;

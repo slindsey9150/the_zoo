@@ -2,6 +2,10 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {
+    rejectUnauthenticated
+  } = require('../modules/authentication-middleware');
+
 router.post('/', (req, res) => {
     const petOwner = req.user.id
     const petName = req.body.pet
@@ -15,7 +19,7 @@ router.post('/', (req, res) => {
     pool.query(queryText, queryParams)
     .then((result) => {
         res.sendStatus(200)
-        console.log("req.user", req.user);
+        console.log("req.user", req.user, petOwner);
         console.log("req.body", req.body);
         
         })
@@ -25,6 +29,26 @@ router.post('/', (req, res) => {
         
     })
     // POST route code here
+  });
+
+  router.get('/', (req, res) => {
+    // GET route code here
+    const userID = req.user
+    const queryText = `
+    SELECT * FROM pets WHERE pets.owner = '1';
+    `
+    pool.query(queryText)
+    .then((results) => {
+        res.send(results.rows)
+        console.log("req.user", req.user);
+        
+    })
+    .catch((error) => {
+        console.log("error fetching pets", error);
+        res.sendStatus(500)
+    })
+
+
   });
 
   module.exports = router;

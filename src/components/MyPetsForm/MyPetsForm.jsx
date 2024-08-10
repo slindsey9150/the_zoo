@@ -12,8 +12,9 @@ export default function MyPetsForm() {
         dispatch({type:"PUT_MYPET", payload:{
             pet:myPet,
             notes:myPetNotes}})
-        
-    }
+        }
+        dispatch({type:"GET_MYPETS"})
+
     return(
         <div>
             <form onSubmit={submitPet}>
