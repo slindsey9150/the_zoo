@@ -7,13 +7,16 @@ export default function MyPetsForm() {
     const [myPet, setMyPet] = useState('')
     const [myPetNotes, setMyPetNotes] = useState('')
 
+
     const submitPet = () => {
         console.log("Submitting pet", myPet);
         dispatch({type:"PUT_MYPET", payload:{
             pet:myPet,
             notes:myPetNotes}})
-        }
+
         dispatch({type:"GET_MYPETS", payload: myPet})
+
+        }
 
     return(
         <div>

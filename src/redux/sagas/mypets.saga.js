@@ -4,8 +4,8 @@ import axios from 'axios';
 function* putMyPet(action) {
     let mypet = action.payload
     try {
-        yield put ({type:"HERE_MYPET", payload:mypet})
         axios.post('/api/mypets', mypet)
+        yield put ({type:"HERE_MYPET", payload:mypet})
     }
     catch (error){
         console.log("failed placing mypet");

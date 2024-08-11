@@ -39,9 +39,7 @@ router.post('/', (req, res) => {
     `
     pool.query(queryText, [userID])
     .then((results) => {
-        res.send(results.rows)
-        console.log("req.user", req.user.id);
-        
+        res.send(results.rows)  
     })
     .catch((error) => {
         console.log("error fetching pets", error);
